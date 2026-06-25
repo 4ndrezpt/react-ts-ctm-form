@@ -1,0 +1,66 @@
+.section__and__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 13px 3px;
+    background-color: var(--mdg-darken-color);
+    & h2, h3, h4 {
+        text-align: center;
+    }
+
+    & .injector {
+        width: 40%;
+    }
+    & .viewer {
+        width: 60%;
+        background-color: var(--mdg-darken-color);
+        max-height: 85vh;
+        margin-left: 8px;
+        & form {
+            display: flex;
+            flex-direction: column;
+            & div {
+                display: flex;
+            }
+            & input {
+                width : 70%;
+            }
+            & button{
+                width: 30%;
+            }
+        }
+
+        & .half-list {
+            background-color: var(--lg-400);
+            display: flex;
+            flex-direction: column;
+            height: 70%;
+            justify-content: space-evenly;
+            overflow-y: scroll;
+        }
+        & .Card-list{
+            background-color: var(--lg-100);
+            text-align: left;
+            border-radius: 13px;
+            justify-content: center;
+            margin-top: 13px;
+            & .Card-list__checker{
+                display: flex;
+                gap: 13px;
+                & input{
+                    transform: scale(1.62);
+                }
+            }
+            &  .Card-list__header {
+                display: flex;
+                justify-content: space-evenly;
+            }
+            & .Card-list__body {
+                padding: 13px 21px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    }
+}
