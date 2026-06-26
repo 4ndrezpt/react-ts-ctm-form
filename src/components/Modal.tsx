@@ -48,7 +48,7 @@ export const Modal = ({
             <PrimaryButton
               className="button-danger"
               label={ ctaPrimary }
-              onClick={ onConfirm}
+              onClick={ onConfirm }
             ></PrimaryButton>
           }
 

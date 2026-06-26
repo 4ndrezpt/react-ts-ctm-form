@@ -1,6 +1,6 @@
 export interface FieldProps {
   value : string;
-  isValid : boolean | null;
+  isValid : boolean | string | null;
 }
 
 export interface FormProps {
@@ -13,4 +13,18 @@ export interface FormProps {
 export interface MyFormProps {
   className : string;
   onHandleSave?: (values : FormProps) => void;
+}
+
+export interface PatternsProps  {
+  name : RegExp;
+  title: RegExp;
+  description: RegExp;
+  email: RegExp;
+  password: RegExp;
+  code : RegExp;
+  document: RegExp;
+  phone: RegExp;
+  date: RegExp;
+  hour:  RegExp;
+  relevance: RegExp;
 }

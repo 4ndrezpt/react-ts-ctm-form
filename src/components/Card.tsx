@@ -9,6 +9,7 @@ interface CardProps {
   actionItem?: ()=>void;
   actionLabel: string;
   onCancel?:  ()=> void;
+  onConfirm?: ()=> void;
   className: string;
   children: React.ReactNode;
 }

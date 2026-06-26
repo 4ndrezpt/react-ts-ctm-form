@@ -72,7 +72,7 @@
             background-color: var(--lg-300);
             display: flex;
             flex-direction: column;
-            height: 70%;
+            height: 100%;
             justify-content: space-evenly;
             overflow-y: scroll;
             & h4, h5, h6, p {
