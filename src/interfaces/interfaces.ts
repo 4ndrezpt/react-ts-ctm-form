@@ -5,9 +5,12 @@ export interface FieldProps {
 
 export interface FormProps {
   id : FieldProps;
-  name : FieldProps;
+  title : FieldProps;
   email : FieldProps;
   assignedEmail: FieldProps;
+  relevance : FieldProps;
+  description: FieldProps;
+  deadlineDate : FieldProps;
 }
 
 export interface MyFormProps {

@@ -50,7 +50,7 @@ export const useForm = ({
     }
   }
 
-  const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e : React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
     let validation = validateField(formState[name as keyof FormProps], name);

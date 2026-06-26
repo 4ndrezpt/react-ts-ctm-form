@@ -21,18 +21,21 @@ export const Card = (
     <div className={`Card__container ${className}`}>
       <div className="Card__header">
         <input type="checkbox" />
-        {<h4>{subject.name.value}</h4>}
+        {<h4>{subject.title.value}</h4>}
       </div>
       <div className="Card__body">
         {children ? children : <p>"No children to show here"</p>}
         <p></p>
       </div>
       <div className="Card__footer">
-        <OutlinedButton
+        {/*
+          <OutlinedButton
           label="Cancel"
           className="outlined"
           onClick={onCancel}
-        ></OutlinedButton>
+          ></OutlinedButton>
+          */
+        }
         <DangerButton
           label={actionLabel}
           className="outlined"

@@ -7,7 +7,7 @@ import { Modal } from "./Modal";
 
 
 export const ReceiverForm = () =>{
-  const savedTasks = localStorage.getItem("tasks-blt");
+  const savedTasks = localStorage.getItem("tasks");
   let initialTasks : FormProps[]= savedTasks ? JSON.parse(savedTasks) : [];
   const [tasks, setTasks] = useState< FormProps[]>(initialTasks);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -30,9 +30,9 @@ export const ReceiverForm = () =>{
 
   useEffect(()=>{
     try {
-      localStorage.setItem("tasks-blt", JSON.stringify(tasks))
+      localStorage.setItem("tasks", JSON.stringify(tasks))
     }catch(error){
-      console.log(`Error setting localStorage key ${"tasks-blt"}`, error);
+      console.log(`Error setting localStorage key ${"tasks"}`, error);
     }
   },[tasks])
 
@@ -68,9 +68,10 @@ export const ReceiverForm = () =>{
               onConfirm={ confirmDelete }
               actionLabel="Delete"
               subject={task}>
-                <p><strong>Title: </strong>{task.name.value} </p>
                 <p><strong>Assigned to: </strong>{task.email.value} </p>
                 <p><strong>Assigned to: </strong>{task.assignedEmail.value} </p>
+                <p><strong>Description: </strong>{task.description.value} </p>
+                <p><strong>Deadline: </strong>{task.deadlineDate.value} </p>
             </Card>
             ))
           }

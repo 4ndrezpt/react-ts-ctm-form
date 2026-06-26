@@ -9,9 +9,12 @@ export const MyForm  = ( {className, onHandleSave}:MyFormProps) => {
 
   const initialForm : FormProps = {
     id : {value: uuidv4(), isValid: true},
-    name : {value: "", isValid: null},
+    title : {value: "", isValid: null},
     email : {value: "", isValid: null},
-    assignedEmail: {value: "", isValid: null}
+    assignedEmail: {value: "", isValid: null},
+    relevance: {value: "", isValid: null},
+    description: {value: "", isValid: null},
+    deadlineDate: {value: "", isValid: null}
   }
 
   const relevanceOptions : string[] = [
@@ -22,7 +25,8 @@ export const MyForm  = ( {className, onHandleSave}:MyFormProps) => {
     ];
 
   const { formState, handleChange, handleSubmit} = useForm({initialForm, onHandleSave});
-  const { id, name, email, assignedEmail }: FormProps = formState;
+  const { id, title, email, assignedEmail, relevance, description, deadlineDate
+  }: FormProps = formState;
 
   return (
     <div className={className}>
@@ -35,11 +39,11 @@ export const MyForm  = ( {className, onHandleSave}:MyFormProps) => {
           <fieldset>
             <legend>Task Information: </legend>
               <label htmlFor="name">Task Name: </label>
-              <input type="text" id="name" name="name"
-              value={name.value}
+              <input type="text" id="title" name="title"
+              value={title.value}
               onChange={handleChange}
               />
-              {name.value == "" ? "" : name.isValid ? "":
+              {title.value == "" ? "" : title.isValid ? "":
                 <p style={{ backgroundColor: "darkred" }}>This Element contain errors</p>}
               <label htmlFor="name">User Email: </label>
               <input type="email" id="email" name="email"
@@ -59,15 +63,20 @@ export const MyForm  = ( {className, onHandleSave}:MyFormProps) => {
           <fieldset>
             <legend>Relevance</legend>
               <label htmlFor="relevance">Relevance: </label>
-            <select>
-              <option > -- Select one option -- </option>
-              {relevanceOptions?.map((option)=>
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              )}
-            </select>
-
+              <select id="relevance" name="relevance"
+                value={relevance.value}
+                onChange={handleChange}
+              >
+                <option>--Select One --</option>
+                {relevanceOptions.map(option => <option key={option} value={option}>{ option }</option>)}
+              </select>
+            <label htmlFor="description">Description: </label>
+            <textarea id="description" name="description"
+              value={description.value} onChange={ handleChange }
+            ></textarea>
+            <label htmlFor="description">Deadline: </label>
+            <input type="date" id="deadlineDate" name="deadlineDate"
+            value={deadlineDate.value} onChange={handleChange}/>
           </fieldset>
         </div>
         <div className="main__form__footer">
