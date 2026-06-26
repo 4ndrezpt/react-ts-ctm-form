@@ -1,0 +1,25 @@
+.Card__container {
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--lg-100);
+    border-radius: 13px;
+    border-bottom: 2px solid darkslateblue;
+}
+.Card__header{
+    display: flex;
+    background-color: var(--info);
+    padding: 13px 13px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+.Card__body {
+    padding: 21px 13px;
+    color: var(--bg-700);
+}
+.Card__footer {
+    display: flex;
+    gap: 13px;
+    padding: 13px 13px 13px 90px;
+}

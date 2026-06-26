@@ -19,9 +19,10 @@ export const App = () => {
       >
       </Navbar>
 
-      <section>
-        <ReceiverForm></ReceiverForm>
-      </section>
+
+        <ReceiverForm>
+        </ReceiverForm>
+
       <Footer>
       </Footer>
 

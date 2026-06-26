@@ -7,6 +7,7 @@ export interface FormProps {
   id : FieldProps;
   name : FieldProps;
   email : FieldProps;
+  assignedEmail: FieldProps;
 }
 
 export interface MyFormProps {

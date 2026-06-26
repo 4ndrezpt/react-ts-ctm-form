@@ -10,7 +10,8 @@ export const MyForm  = ( {className, onHandleSave}:MyFormProps) => {
   const initialForm : FormProps = {
     id : {value: uuidv4(), isValid: true},
     name : {value: "", isValid: null},
-    email : {value: "", isValid: null}
+    email : {value: "", isValid: null},
+    assignedEmail: {value: "", isValid: null}
   }
 
   const relevanceOptions : string[] = [
@@ -21,7 +22,7 @@ export const MyForm  = ( {className, onHandleSave}:MyFormProps) => {
     ];
 
   const { formState, handleChange, handleSubmit} = useForm({initialForm, onHandleSave});
-  const { id, name, email }: FormProps = formState;
+  const { id, name, email, assignedEmail }: FormProps = formState;
 
   return (
     <div className={className}>
@@ -48,6 +49,25 @@ export const MyForm  = ( {className, onHandleSave}:MyFormProps) => {
               {email.value == "" ? "": email.isValid ? "" :
                 <p style={{ backgroundColor: "darkred" }}>This Element contain errors</p>}
               <label htmlFor="assignedEmail">Assigned Email: </label>
+              <input type="email" id="assignedEmail" name="assignedEmail"
+              value={assignedEmail.value}
+              onChange={handleChange}
+              />
+              {assignedEmail.value == "" ? "": assignedEmail.isValid ? "" :
+                <p style={{ backgroundColor: "darkred" }}>This Element contain errors</p>}
+          </fieldset>
+          <fieldset>
+            <legend>Relevance</legend>
+              <label htmlFor="relevance">Relevance: </label>
+            <select>
+              <option > -- Select one option -- </option>
+              {relevanceOptions?.map((option)=>
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              )}
+            </select>
+
           </fieldset>
         </div>
         <div className="main__form__footer">

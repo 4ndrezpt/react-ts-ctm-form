@@ -1,29 +1,67 @@
 .section__and__container {
-    width: 100%;
     display: flex;
-    flex-direction: row;
-    padding: 13px 3px;
+    flex-direction: column;
     background-color: var(--mdg-darken-color);
-    & h2, h3, h4 {
-        text-align: center;
-    }
-
     & .injector {
-        width: 40%;
+        display: flex;
+        flex-direction: row;
+    }
+    & .injector {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
     }
     & .viewer {
-        width: 60%;
-        background-color: var(--mdg-darken-color);
-        max-height: 85vh;
-        margin-left: 8px;
-        & form {
+        width: 100%;
+        height: 100%;
+        max-height: 50vh;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+        background-color: var(--lg-300);
+    }
+    & .main__form{
+        width: 100%;
+    }
+    & .main__form__body {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        & fieldset {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (min-width: 760px){
+    .section__and__container {
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        flex-direction: row;
+        padding: 13px 3px;
+        & h2, h3, h4 {
+            text-align: center;
+        }
+
+        & .injector {
+            width: 40%;
+            flex-direction: column;
+        }
+        & .viewer {
+            width: 60%;
+            height: 100%;
+            max-height: 85vh;
+            margin-left: 8px;
+            overflow-y: scroll;
+        }
+        & .main__form__body {
             display: flex;
             flex-direction: column;
             & div {
                 display: flex;
             }
             & input {
-                width : 70%;
+                width : 90%;
             }
             & button{
                 width: 30%;
@@ -31,15 +69,22 @@
         }
 
         & .half-list {
-            background-color: var(--lg-400);
+            background-color: var(--lg-300);
             display: flex;
             flex-direction: column;
             height: 70%;
             justify-content: space-evenly;
             overflow-y: scroll;
+            & h4, h5, h6, p {
+                color: var(--lg-600);
+            }
+            & a  {
+                color: var(--visited);
+            }
         }
         & .Card-list{
             background-color: var(--lg-100);
+            color: var(--lg-100);
             text-align: left;
             border-radius: 13px;
             justify-content: center;
@@ -62,5 +107,7 @@
                 justify-content: center;
             }
         }
+
     }
+
 }

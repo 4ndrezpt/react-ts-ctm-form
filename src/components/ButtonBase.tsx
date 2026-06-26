@@ -2,11 +2,10 @@ import "../styles/ButtonBase.css";
 
 interface ButtonBaseProps  {
   label : string;
-  className : string;
+  className?: string;
   onClick?: ()=>void | null;
   children?: React.ReactNode | null;
 }
-
 
 export const ButtonBase=(
   {label, className, onClick, children} : ButtonBaseProps
