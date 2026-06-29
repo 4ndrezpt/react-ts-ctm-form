@@ -19,7 +19,23 @@
         flex-wrap: nowrap;
         background-color: var(--lg-300);
     }
-    & .main__form{
+    & .half-list {
+        padding: 13px 0;
+        & form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            & label {
+                margin-left: 5%;
+            }
+            & input {
+                width: 90%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    }
+    & .main__form {
         width: 100%;
     }
     & .main__form__body {
@@ -73,7 +89,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            justify-content: space-evenly;
+            justify-content: flex-start;
             overflow-y: scroll;
             & h4, h5, h6, p {
                 color: var(--lg-600);

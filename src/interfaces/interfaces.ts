@@ -11,6 +11,7 @@ export interface FormProps {
   relevance : FieldProps;
   description: FieldProps;
   deadlineDate : FieldProps;
+  createdDate: FieldProps;
 }
 
 export interface MyFormProps {

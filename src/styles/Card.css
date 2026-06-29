@@ -1,6 +1,8 @@
 .Card__container {
     margin-top: 5px;
-    width: 100%;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
     display: flex;
     flex-direction: column;
     background-color: var(--lg-100);

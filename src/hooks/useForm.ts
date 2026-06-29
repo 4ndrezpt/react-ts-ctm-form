@@ -32,8 +32,12 @@ export const useForm = ({
     let upper : RegExp = /[A-Z]/;
     let hasUpper = '';
     let regex : RegExp;
+    if(type === "createdDate"){
+      return true;
+    }
     if(type.search(upper) > 0){
       //console.log(type.search(upper));
+
       hasUpper = type.slice(type.search(upper));
       //console.log(patterns[hasUpper.toLowerCase()])
       regex = patterns[hasUpper.toLowerCase() as keyof PatternsProps];
@@ -55,6 +59,8 @@ export const useForm = ({
 
     let validation = validateField(formState[name as keyof FormProps], name);
     //console.log("validation: ", validation);
+    let createdAt = new Date();
+    console.log("createdAt: ", createdAt);
     setFormState({
       ...formState,
       [name]: {

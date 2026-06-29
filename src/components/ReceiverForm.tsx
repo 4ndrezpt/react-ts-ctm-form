@@ -12,8 +12,12 @@ export const ReceiverForm = () =>{
   const [tasks, setTasks] = useState< FormProps[]>(initialTasks);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [deleteSelected, setDeleteSelected] = useState<string | null>(null);
+  const [ filter, setFilter ] = useState("");
+
+
 
   const addData = (newData:FormProps):void => {
+
     setTasks([...(tasks || []), newData]);
     //console.log("Hook recivido:", newData);
   }
@@ -31,6 +35,7 @@ export const ReceiverForm = () =>{
   useEffect(()=>{
     try {
       localStorage.setItem("tasks", JSON.stringify(tasks))
+      console.log(tasks)
     }catch(error){
       console.log(`Error setting localStorage key ${"tasks"}`, error);
     }
@@ -60,8 +65,31 @@ export const ReceiverForm = () =>{
       <div className="viewer">
         {
         <div className="half-list">
+          <h3>Todo List</h3>
+          <hr></hr>
+          <div className="main-form">
+            <form>
+              <label>Filter: </label>
+              <input type="text" id="filter" name="filter"
+              value={filter}
+              onChange={(e)=> setFilter(e.target.value)}
+              />
+            </form>
+          </div>
           {
-            tasks?.map( (task) =>  (
+
+            tasks?.filter((item)=> {
+              if(filter.toLowerCase() === ""){
+                return item;
+              }else{
+                for(let key in item){
+                  if(item[key as keyof FormProps].value.toLowerCase().includes(filter)){
+                    return item;
+                  }
+                }
+              }
+            })
+            .map( (task) =>  (
             <Card key={task.id.value}
               className="info"
               actionItem={()=>onOpenModal(task.id.value)}
@@ -72,8 +100,10 @@ export const ReceiverForm = () =>{
                 <p><strong>Assigned to: </strong>{task.assignedEmail.value} </p>
                 <p><strong>Description: </strong>{task.description.value} </p>
                 <p><strong>Deadline: </strong>{task.deadlineDate.value} </p>
+                { task.hasOwnProperty("createdDate") ? <p><strong>Created at: </strong>{task.createdDate.value}</p> : ""}
             </Card>
             ))
+
           }
       </div>
         }

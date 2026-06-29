@@ -14,7 +14,8 @@ export const MyForm  = ( {className, onHandleSave}:MyFormProps) => {
     assignedEmail: {value: "", isValid: null},
     relevance: {value: "", isValid: null},
     description: {value: "", isValid: null},
-    deadlineDate: {value: "", isValid: null}
+    deadlineDate: {value: "", isValid: null},
+    createdDate: { value: (new Date()).toString(), isValid: true}
   }
 
   const relevanceOptions : string[] = [
@@ -25,7 +26,7 @@ export const MyForm  = ( {className, onHandleSave}:MyFormProps) => {
     ];
 
   const { formState, handleChange, handleSubmit} = useForm({initialForm, onHandleSave});
-  const { id, title, email, assignedEmail, relevance, description, deadlineDate
+  const { id, title, email, assignedEmail, relevance, description, deadlineDate, createdDate
   }: FormProps = formState;
 
   return (
